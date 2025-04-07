@@ -1,0 +1,799 @@
+/* Variables de color */
+:root {
+  --color1: #62d0af;
+  --color2: #49a484;
+  --color3: #317858;
+  --color4: #184c2c;
+  --color5: #002000;
+  --bg-light: #f4f4f4;
+  --text-light: #080808;
+  --bg-dark: #002000;
+  --text-dark: #f4f4f4;
+}
+
+/* Estilos generales */ 
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* Contenedor principal */
+.App {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .App {
+  background-color: #333;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para el menú inferior */
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color5); /* Fondo oscuro */
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+}
+
+.menu-inferior-list {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-inferior-item {
+  text-align: center;
+}
+
+.menu-inferior-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff; /* Texto blanco */
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-inferior-link:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo ligeramente más claro al pasar el cursor */
+}
+
+.menu-inferior-link span {
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+/* Estilos de navegación */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--color3);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: var(--color4);
+}
+
+/* Estilos para el contenedor de login */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--bg-light);
+}
+
+.dark-mode .login-container {
+  background-color: var(--bg-dark);
+}
+
+/* Estilos para la tarjeta de login */
+.login-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 350px;
+}
+
+.dark-mode .login-card {
+  background-color: #222;
+  color: #eee;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para el encabezado de login */
+.login-header {
+  margin-bottom: 20px;
+  color: var(--color5);
+}
+
+.dark-mode .login-header {
+  color: var(--color1);
+}
+
+/* Estilo para la imagen de usuario */
+.user-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+
+/* Estilos para el formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.login-form input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dark-mode .login-form input {
+  background-color: #444;
+  color: #eee;
+  border-color: #666;
+}
+
+/* Estilos para el botón de inicio de sesión */
+.btn-login {
+  background-color: var(--color2);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: var(--color3);
+}
+
+/* Estilos para el botón de cerrar sesión */
+.btn-logout {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+.btn-logout:hover {
+  background-color: #c9302c;
+}
+
+/* Estilos para el mensaje de error */
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el botón de inicio de sesión con Google */
+.google-login {
+  background-color: #db4437;
+}
+
+.google-login:hover {
+  background-color: #c23321;
+}
+
+/* Estilos generales del contenedor de gastos */
+.gastos-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.dark-mode .gastos-container {
+  background-color: #222;
+  color: #eee;
+  border-color: #444;
+}
+
+/* Estilos de los títulos */
+.gastos-container h2,
+.gastos-container h3 {
+  color: var(--color4);
+  margin-bottom: 10px;
+}
+
+.dark-mode .gastos-container h2,
+.dark-mode .gastos-container h3 {
+  color: #fff;
+}
+
+/* Estilos del presupuesto */
+.presupuesto {
+  margin-bottom: 20px;
+}
+
+.presupuesto label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.presupuesto input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.dark-mode .presupuesto input[type="number"] {
+  background-color: #444;
+  color: #eee;
+  border-color: #666;
+}
+
+.presupuesto p {
+  font-size: 16px;
+}
+
+.dark-mode .presupuesto p {
+  color: #eee;
+}
+
+/* Estilos del formulario de gasto */
+.formulario-gasto label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formulario-gasto input[type="text"],
+.formulario-gasto input[type="number"],
+.formulario-gasto select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.dark-mode .formulario-gasto input[type="text"],
+.dark-mode .formulario-gasto input[type="number"],
+.dark-mode .formulario-gasto select {
+  background-color: #444;
+  color: #eee;
+  border-color: #666;
+}
+
+.formulario-gasto button[type="submit"] {
+  background-color: var(--color2);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formulario-gasto button[type="submit"]:hover {
+  background-color: var(--color3);
+}
+
+/* Estilos de la lista de gastos */
+.lista-gastos ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-gastos li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.dark-mode .lista-gastos li {
+  border-bottom: 1px solid #444;
+}
+
+.lista-gastos li:last-child {
+  border-bottom: none;
+}
+
+/* Estilos de los botones de eliminar */
+.btn-eliminar {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.btn-eliminar:hover {
+  background-color: #c9302c;
+}
+
+/* Estilos del botón de reiniciar presupuesto */
+.btn-reiniciar {
+  background-color: #337ab7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-reiniciar:hover {
+  background-color: #286090;
+}
+
+/* Botón para eliminar todos los gastos */
+.btn-eliminar-todos {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-eliminar-todos:hover {
+  background-color: #cc0000;
+}
+
+/* Estilos para mensajes de error */
+.error-text {
+  color: #ff0000;
+  margin-top: 10px;
+}
+
+/* Estilos para el botón de alternar el modo oscuro */
+.btn-toggle-dark-mode {
+  background-color: #666;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-toggle-dark-mode:hover {
+  background-color: #999;
+}
+
+/* Estilos para el componente MetasAhorro */
+.metas-ahorro-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: var(--bg-light);
+  color: var(--text-light); /* Asegura que el texto sea legible en modo claro */
+}
+
+.dark-mode .metas-ahorro-container {
+  background-color: #333;
+  color: #eee; /* Asegura que el texto sea legible en modo oscuro */
+  border-color: #666;
+}
+
+.metas-ahorro-container h2,
+.metas-ahorro-container h3 {
+  color: var(--color4);
+  margin-bottom: 10px;
+}
+
+.dark-mode .metas-ahorro-container h2,
+.dark-mode .metas-ahorro-container h3 {
+  color: #fff;
+}
+
+.formulario-meta label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formulario-meta input[type="text"],
+.formulario-meta input[type="number"],
+.formulario-meta input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.dark-mode .formulario-meta input[type="text"],
+.dark-mode .formulario-meta input[type="number"],
+.dark-mode .formulario-meta input[type="date"] {
+  background-color: #444;
+  color: #eee;
+  border-color: #666;
+}
+
+.formulario-meta button[type="submit"] {
+  background-color: var(--color2);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formulario-meta button[type="submit"]:hover {
+  background-color: var(--color3);
+}
+
+.lista-metas ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-metas li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.dark-mode .lista-metas li {
+  border-bottom: 1px solid #666;
+}
+
+.lista-metas li:last-child {
+  border-bottom: none;
+}
+
+.lista-metas li form {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.lista-metas li input[type="number"] {
+  width: 100px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dark-mode .lista-metas li input[type="number"] {
+  background-color: #444;
+  color: #eee;
+  border-color: #666;
+}
+
+.lista-metas li button {
+  background-color: #337ab7;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.dark-mode .lista-metas li button {
+  background-color: #555;
+  color: #ddd;
+}
+
+.lista-metas li button:hover {
+  background-color: #286090;
+}
+
+.dark-mode .lista-metas li button:hover {
+  background-color: #777;
+}
+
+/* Estilos para el componente de análisis de gastos */
+.analisis-gastos-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.dark-mode .analisis-gastos-container {
+  background-color: #222;
+  color: #eee;
+  border-color: #444;
+}
+
+.analisis-gastos-container h2,
+.analisis-gastos-container h3 {
+  color: var(--color4);
+  margin-bottom: 10px;
+}
+
+.dark-mode .analisis-gastos-container h2,
+.dark-mode .analisis-gastos-container h3 {
+  color: #fff;
+}
+/* Contenedor principal */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #4A90E2, #50E3C2);
+  padding: 20px;
+}
+
+/* Tarjeta de inicio de sesión */
+.login-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo */
+.login-logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+/* Título y subtítulo */
+h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+}
+
+.login-form input:focus {
+  border-color: #4A90E2;
+  outline: none;
+}
+
+/* Botón de inicio de sesión */
+.btn-login {
+  background: #4A90E2;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-login:hover {
+  background: #357ABD;
+}
+
+/* Botón de Google */
+.google-login {
+  background: white;
+  color: #444;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.google-login:hover {
+  background: #f5f5f5;
+}
+
+/* Mensaje de error */
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Avatar del usuario */
+.user-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 10px 0;
+  border: 3px solid #4A90E2;
+}
+
+/* Botón de cerrar sesión */
+.btn-logout {
+  background: #FF4D4D;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-logout:hover {
+  background: #D93636;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+      width: 90%;
+      padding: 20px;
+  }
+}
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color5);
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode .menu-inferior {
+  background-color: #1a1a1a;
+  box-shadow: 0 -4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.menu-inferior-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.menu-inferior-item {
+  text-align: center;
+  flex: 1;
+}
+
+.menu-inferior-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.menu-inferior-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.menu-inferior-link.active {
+  color: #fff;
+  font-weight: bold;
+}
+
+.menu-inferior-link svg {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
+}
+
+.menu-inferior-link:hover svg {
+  transform: scale(1.1);
+}
+
+.menu-inferior-link span {
+  font-size: 0.7em;
+  margin-top: 4px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.menu-inferior-link:hover span {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .menu-inferior-link {
+    padding: 6px 8px;
+  }
+  
+  .menu-inferior-link svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .menu-inferior-link span {
+    font-size: 0.6em;
+  }
+}

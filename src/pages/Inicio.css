@@ -1,0 +1,32 @@
+.inicio-container {
+    background-image: url('/assets/inicio-image.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .inicio-content {
+    text-align: center;
+  }
+  
+  .inicio-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .inicio-button {
+    margin-top: -200px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #0e2f8a;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  .inicio-button:hover {
+    background-color: #45a049;
+  }
+  
