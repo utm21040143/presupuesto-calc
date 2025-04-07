@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "@/pages/Login";
+import Inicio from "@/pages/Inicio";
 import MenuInferior from "@/components/MenuInferior";
 import GestionGastos from "@/components/GestionGastos";
 import AnalisisGastos from "@/components/AnalisisGastos";
@@ -19,60 +20,58 @@ function App() {
     <Router>
       <div className={`App ${darkMode ? "dark-mode" : ""}`}>
         <ErrorBoundary>
-            <Routes>
-              {/* Ruta principal redirige a login */}
-              <Route path="/" element={<Login />} />
-              <Route path="/login" element={<Login />} />
+          <Routes>
+            {/* Página de inicio */}
+            <Route path="/" element={<Inicio />} />
 
-              <Route
-                path="/gastos"
-                element={
-                    <GestionGastos 
-                      darkMode={darkMode} 
-                      toggleDarkMode={toggleDarkMode} 
-                    />
-                }
-              />
-              
-              <Route
-                path="/analisis"
-                element={
-                    <AnalisisGastos 
-                      darkMode={darkMode} 
-                      toggleDarkMode={toggleDarkMode} 
-                    />
-                }
-              />
-              
-              <Route
-                path="/metas-ahorro"
-                element={
-                    <MetasAhorro 
-                      darkMode={darkMode} 
-                      toggleDarkMode={toggleDarkMode} 
-                    />
-                }
-              />
-              
-              <Route
-                path="/perfil"
-                element={
-                    <Perfil 
-                      darkMode={darkMode} 
-                      toggleDarkMode={toggleDarkMode} 
-                    />
-                }
-              />
+            {/* Login */}
+            <Route path="/login" element={<Login />} />
 
+            {/* Páginas principales con gestión */}
             <Route
-              path="*"
+              path="/gastos"
               element={
-                !window.location.pathname.includes('/login') && <MenuInferior />
+                <GestionGastos 
+                  darkMode={darkMode} 
+                  toggleDarkMode={toggleDarkMode} 
+                />
               }
             />
-            </Routes>
+            
+            <Route
+              path="/analisis"
+              element={
+                <AnalisisGastos 
+                  darkMode={darkMode} 
+                  toggleDarkMode={toggleDarkMode} 
+                />
+              }
+            />
+            
+            <Route
+              path="/metas-ahorro"
+              element={
+                <MetasAhorro 
+                  darkMode={darkMode} 
+                  toggleDarkMode={toggleDarkMode} 
+                />
+              }
+            />
+            
+            <Route
+              path="/perfil"
+              element={
+                <Perfil 
+                  darkMode={darkMode} 
+                  toggleDarkMode={toggleDarkMode} 
+                />
+              }
+            />
+          </Routes>
         </ErrorBoundary>
-        {!window.location.pathname.includes('/login') && <MenuInferior />}        
+
+        {/* Mostrar el menú inferior excepto en la ruta /login */}
+        {!window.location.pathname.includes('/login') && <MenuInferior />}
       </div>
     </Router>
   );
